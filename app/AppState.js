@@ -1,3 +1,4 @@
+import { DetailedSpell } from './models/DetailedSpell.js'
 import { Spell } from './models/Spell.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { createObservableProxy } from './utils/ObservableProxy.js'
@@ -15,7 +16,7 @@ class ObservableAppState extends EventEmitter {
   dndSpells = []
 
   /**
-   * @type {Spell | null}
+   * @type {DetailedSpell | null}
    */
   activeDetailedSpell = null
 }

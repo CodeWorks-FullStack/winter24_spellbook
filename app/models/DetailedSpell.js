@@ -7,7 +7,7 @@ export class DetailedSpell {
     this.description = data.desc
     this.range = data.range
     this.components = data.components
-    this.material = data.material
+    this.material = data.material || ''
     this.ritual = data.ritual
     this.duration = data.duration
     this.concentration = data.concentration
