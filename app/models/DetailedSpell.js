@@ -14,6 +14,48 @@ export class DetailedSpell {
     this.castingTime = data.casting_time
     this.level = data.level
   }
+
+  get DetailsCardHTMLTemplate() {
+    return `
+    <div class="card p-4">
+      <h2>${this.name}</h2>
+      <h3>LEVEL ${this.level}</h3>
+      <h4>
+        RANGE: ${this.range}
+        ${this.RitualSpan}
+        ${this.ConcentrationSpan}
+        DURATION ${this.duration}
+      </h4>
+      <h5>
+        ${this.MaterialSpan}
+        CASTING TIME ${this.castingTime}
+      </h5>
+      <p>${this.description}</p>
+    </div>
+    `
+  }
+
+  get RitualSpan() {
+    if (!this.ritual) {
+      return ''
+    }
+
+    return '<span>RITUAL</span>'
+  }
+  get ConcentrationSpan() {
+    if (!this.concentration) {
+      return ''
+    }
+
+    return '<span>CONCENTRATION</span>'
+  }
+  get MaterialSpan() {
+    if (!this.material) {
+      return ''
+    }
+
+    return `<span>MATERIAL ${this.material}</span>`
+  }
 }
 
 // let spellData = {
