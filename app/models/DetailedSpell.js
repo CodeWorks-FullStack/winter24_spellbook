@@ -4,14 +4,14 @@ export class DetailedSpell {
     this.name = data.name
     this.url = data.url
     // NOTE .join() is an array method that will join an array of strings into one single string with an optional separator
-    this.description = data.desc.join('<br><br>')
+    this.description = data.description || data.desc.join('<br><br>')
     this.range = data.range
     this.components = data.components
     this.material = data.material || ''
     this.ritual = data.ritual
     this.duration = data.duration
     this.concentration = data.concentration
-    this.castingTime = data.casting_time
+    this.castingTime = data.casting_time || data.castingTime
     this.level = data.level
   }
 
@@ -65,6 +65,14 @@ export class DetailedSpell {
     }
 
     return `<span>MATERIAL: ${this.material}</span>`
+  }
+
+  get ListButtonHTMLTemplate() {
+    return `
+    <div class="mb-2">
+      <button onclick="app.SandboxSpellsController.setActiveSpell('')" class="btn btn-info w-75">${this.name}</button>
+    </div>
+    `
   }
 }
 

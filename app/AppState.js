@@ -19,6 +19,14 @@ class ObservableAppState extends EventEmitter {
    * @type {DetailedSpell | null}
    */
   activeDetailedSpell = null
+
+
+  /**
+   * @type {DetailedSpell[]}
+   */
+  loggedInUsersSpells = []
+
+  showMySpells = false
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
