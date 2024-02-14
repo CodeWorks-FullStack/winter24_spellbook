@@ -1,1 +1,6 @@
 /* BASIC STYLES HERE */
+
+#dndSpellList {
+  max-height: 80dvh;
+  overflow-y: auto;
+}
