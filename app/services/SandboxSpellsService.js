@@ -1,6 +1,13 @@
+import { AppState } from "../AppState.js";
+import { api } from "./AxiosService.js"
+
 class SandboxSpellsService {
-  createSpell() {
-    // const response = await 
+  async createSpell() {
+    const activeSpell = AppState.activeDetailedSpell
+
+    const response = await api.post('api/spells', activeSpell)
+
+    console.log('📡 created spell', response.data);
   }
 
 }
