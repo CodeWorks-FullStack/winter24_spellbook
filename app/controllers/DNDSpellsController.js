@@ -24,4 +24,8 @@ export class DNDSpellsController {
       console.error(error);
     }
   }
+
+  getSpellDetails(spellIndex) {
+    console.log('getting spell details', spellIndex);
+  }
 }

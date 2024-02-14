@@ -8,7 +8,7 @@ export class Spell {
   get ListButtonHTMLTemplate() {
     return `
     <div class="mb-2">
-      <button class="btn btn-info w-75">${this.name}</button>
+      <button onclick="app.DNDSpellsController.getSpellDetails('${this.index}')" class="btn btn-info w-75">${this.name}</button>
     </div>
     `
   }
