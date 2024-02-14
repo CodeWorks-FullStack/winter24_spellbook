@@ -72,9 +72,15 @@ export class DetailedSpell {
   get ListButtonHTMLTemplate() {
     return `
     <div class="mb-2">
-      <input onchange="app.SandboxSpellsController.prepareSpell('${this.id}')" type="checkbox">
+      ${this.PreparedCheckbox}
       <button onclick="app.SandboxSpellsController.setActiveSpell('${this.id}')" class="btn btn-info w-75">${this.name}</button>
     </div>
+    `
+  }
+
+  get PreparedCheckbox() {
+    return `
+    <input onchange="app.SandboxSpellsController.prepareSpell('${this.id}')" ${this.prepared ? 'checked' : ''} type="checkbox">
     `
   }
 }

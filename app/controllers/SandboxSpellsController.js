@@ -43,6 +43,7 @@ export class SandboxSpellsController {
   async prepareSpell(spellId) {
     try {
       console.log('Preparing spell', spellId);
+      await sandboxSpellsService.prepareSpell(spellId)
     } catch (error) {
       console.error(error);
       Pop.error(error)
