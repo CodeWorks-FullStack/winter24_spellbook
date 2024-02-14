@@ -23,6 +23,10 @@ class SandboxSpellsService {
     const response = await api.post('api/spells', activeSpell)
 
     console.log('📡 created spell', response.data);
+
+    const newSpell = new DetailedSpell(response.data)
+
+    AppState.loggedInUsersSpells.push(newSpell)
   }
 
   async prepareSpell(spellId) {

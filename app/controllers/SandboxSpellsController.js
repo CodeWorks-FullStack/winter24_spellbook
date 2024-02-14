@@ -1,13 +1,17 @@
 import { AppState } from "../AppState.js";
 import { sandboxSpellsService } from "../services/SandboxSpellsService.js";
 import { Pop } from "../utils/Pop.js";
-import { setHTML } from "../utils/Writer.js";
+import { setHTML, setText } from "../utils/Writer.js";
 
 function _drawMySpells() {
   const mySpells = AppState.loggedInUsersSpells
   let htmlString = ''
   mySpells.forEach(spell => htmlString += spell.ListButtonHTMLTemplate)
   setHTML('mySpells', htmlString)
+
+  const preparedSpells = mySpells.filter(spell => spell.prepared)
+
+  setText('spellCount', `${preparedSpells.length} / ${mySpells.length}`)
 }
 
 export class SandboxSpellsController {
