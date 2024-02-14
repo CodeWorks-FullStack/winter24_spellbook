@@ -13,6 +13,11 @@ class ObservableAppState extends EventEmitter {
    * @type {Spell[]}
    */
   dndSpells = []
+
+  /**
+   * @type {Spell | null}
+   */
+  activeDetailedSpell = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
