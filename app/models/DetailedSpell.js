@@ -3,7 +3,7 @@ export class DetailedSpell {
     this.index = data.index
     this.name = data.name
     this.url = data.url
-    // FIXME this might look weird
+    // NOTE .join() is an array method that will join an array of strings into one single string with an optional separator
     this.description = data.desc.join('<br><br>')
     this.range = data.range
     this.components = data.components
@@ -21,8 +21,8 @@ export class DetailedSpell {
       <h2>${this.name}</h2>
       <h3>LEVEL ${this.level}</h3>
       <h4>
-      ${this.RitualSpan}
-      ${this.ConcentrationSpan}
+        ${this.RitualSpan}
+        ${this.ConcentrationSpan}
       </h4>
       <h4>
        RANGE: ${this.range}
@@ -34,6 +34,7 @@ export class DetailedSpell {
         ${this.MaterialSpan}
         CASTING TIME: ${this.castingTime}
       </h5>
+      <h5>COMPONENTS: ${this.components.join(', ')}</h5>
       <p>${this.description}</p>
     </div>
     `
