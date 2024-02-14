@@ -10,11 +10,16 @@ function _drawSpellList() {
   setHTML('dndSpellList', htmlString)
 }
 
+function _drawDetailedSpell() {
+  setHTML('spellDetails', AppState.activeDetailedSpell.DetailsCardHTMLTemplate)
+}
+
 export class DNDSpellsController {
   constructor () {
     this.getDNDSpells()
 
     AppState.on('dndSpells', _drawSpellList)
+    AppState.on('activeDetailedSpell', _drawDetailedSpell)
   }
   async getDNDSpells() {
     try {

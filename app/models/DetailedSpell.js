@@ -4,7 +4,7 @@ export class DetailedSpell {
     this.name = data.name
     this.url = data.url
     // FIXME this might look weird
-    this.description = data.desc
+    this.description = data.desc.join('<br><br>')
     this.range = data.range
     this.components = data.components
     this.material = data.material || ''
@@ -21,14 +21,18 @@ export class DetailedSpell {
       <h2>${this.name}</h2>
       <h3>LEVEL ${this.level}</h3>
       <h4>
-        RANGE: ${this.range}
-        ${this.RitualSpan}
-        ${this.ConcentrationSpan}
-        DURATION ${this.duration}
+      ${this.RitualSpan}
+      ${this.ConcentrationSpan}
+      </h4>
+      <h4>
+       RANGE: ${this.range}
+      </h4>
+      <h4>
+        DURATION: ${this.duration}
       </h4>
       <h5>
         ${this.MaterialSpan}
-        CASTING TIME ${this.castingTime}
+        CASTING TIME: ${this.castingTime}
       </h5>
       <p>${this.description}</p>
     </div>
@@ -54,7 +58,7 @@ export class DetailedSpell {
       return ''
     }
 
-    return `<span>MATERIAL ${this.material}</span>`
+    return `<span>MATERIAL: ${this.material}</span>`
   }
 }
 
