@@ -3,6 +3,10 @@ import { DetailedSpell } from "../models/DetailedSpell.js";
 import { api } from "./AxiosService.js"
 
 class SandboxSpellsService {
+  setActiveSpell(spellId) {
+    const foundSpell = AppState.loggedInUsersSpells.find(spell => spell.id == spellId)
+    AppState.activeDetailedSpell = foundSpell
+  }
   async getSpellsForLoggedInUser() {
     const response = await api.get('api/spells')
 

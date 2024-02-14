@@ -1,8 +1,9 @@
 export class DetailedSpell {
   constructor (data) {
-    this.index = data.index
+    this.id = data.id || ''
+    this.index = data.index || ''
+    this.url = data.url || ''
     this.name = data.name
-    this.url = data.url
     // NOTE .join() is an array method that will join an array of strings into one single string with an optional separator
     this.description = data.description || data.desc.join('<br><br>')
     this.range = data.range
@@ -70,7 +71,7 @@ export class DetailedSpell {
   get ListButtonHTMLTemplate() {
     return `
     <div class="mb-2">
-      <button onclick="app.SandboxSpellsController.setActiveSpell('')" class="btn btn-info w-75">${this.name}</button>
+      <button onclick="app.SandboxSpellsController.setActiveSpell('${this.id}')" class="btn btn-info w-75">${this.name}</button>
     </div>
     `
   }
