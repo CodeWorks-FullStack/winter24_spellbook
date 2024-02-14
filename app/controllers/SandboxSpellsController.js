@@ -9,7 +9,8 @@ function _drawMySpells() {
   mySpells.forEach(spell => htmlString += spell.ListButtonHTMLTemplate)
   setHTML('mySpells', htmlString)
 
-  const preparedSpells = mySpells.filter(spell => spell.prepared)
+  // NOTE array of only prepared spells
+  const preparedSpells = mySpells.filter(spell => spell.prepared) //spell.prepared == true
 
   setText('spellCount', `${preparedSpells.length} / ${mySpells.length}`)
 }
@@ -18,7 +19,9 @@ export class SandboxSpellsController {
   constructor () {
     // this.getSpellsForLoggedInUser()
 
+    // NOTE we only want to get the spells for the user if they are logged in
     AppState.on('account', this.getSpellsForLoggedInUser)
+
     AppState.on('loggedInUsersSpells', _drawMySpells)
   }
   async saveSpell() {
@@ -44,6 +47,7 @@ export class SandboxSpellsController {
     sandboxSpellsService.setActiveSpell(spellId)
   }
 
+  // REVIEW update - put
   async prepareSpell(spellId) {
     try {
       console.log('Preparing spell', spellId);

@@ -1,10 +1,12 @@
 export class DetailedSpell {
   constructor (data) {
+    // NOTE lots of or statements since our data is coming from two different API's
     this.id = data.id || ''
     this.index = data.index || ''
     this.url = data.url || ''
     this.name = data.name
     // NOTE .join() is an array method that will join an array of strings into one single string with an optional separator
+    // NOTE we check the description first so we don't drill into undefined
     this.description = data.description || data.desc.join('<br><br>')
     this.range = data.range
     this.components = data.components
@@ -79,6 +81,8 @@ export class DetailedSpell {
   }
 
   get PreparedCheckbox() {
+    // NOTE onchange will execute code every time an inputs value is changed. Very handy for checkboxes
+    // NOTE ternary conditionally adds the 'checked' attribute to our input if the spell.prepared == true
     return `
     <input onchange="app.SandboxSpellsController.prepareSpell('${this.id}')" ${this.prepared ? 'checked' : ''} type="checkbox">
     `

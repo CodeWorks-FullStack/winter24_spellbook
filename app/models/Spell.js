@@ -1,3 +1,5 @@
+
+// NOTE a small model for our initial data that we display in a list
 export class Spell {
   constructor (data) {
     this.index = data.index
