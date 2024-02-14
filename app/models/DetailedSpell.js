@@ -14,6 +14,7 @@ export class DetailedSpell {
     this.concentration = data.concentration
     this.castingTime = data.casting_time || data.castingTime
     this.level = data.level
+    this.prepared = data.prepared || false
   }
 
   get DetailsCardHTMLTemplate() {
@@ -71,6 +72,7 @@ export class DetailedSpell {
   get ListButtonHTMLTemplate() {
     return `
     <div class="mb-2">
+      <input onchange="app.SandboxSpellsController.prepareSpell('${this.id}')" type="checkbox">
       <button onclick="app.SandboxSpellsController.setActiveSpell('${this.id}')" class="btn btn-info w-75">${this.name}</button>
     </div>
     `

@@ -39,4 +39,13 @@ export class SandboxSpellsController {
   setActiveSpell(spellId) {
     sandboxSpellsService.setActiveSpell(spellId)
   }
+
+  async prepareSpell(spellId) {
+    try {
+      console.log('Preparing spell', spellId);
+    } catch (error) {
+      console.error(error);
+      Pop.error(error)
+    }
+  }
 }
