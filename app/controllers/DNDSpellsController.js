@@ -25,7 +25,13 @@ export class DNDSpellsController {
     }
   }
 
-  getSpellDetails(spellIndex) {
-    console.log('getting spell details', spellIndex);
+  async getSpellDetails(spellIndex) {
+    try {
+      console.log('getting spell details', spellIndex);
+      dndSpellsService.getSpellDetails(spellIndex)
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+    }
   }
 }
