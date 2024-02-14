@@ -28,15 +28,6 @@ class SandboxSpellsService {
   async prepareSpell(spellId) {
     const foundSpell = AppState.loggedInUsersSpells.find(spell => spell.id == spellId)
 
-    // console.log(foundSpell);
-
-    // if (foundSpell.prepared == true){
-
-    // }
-    // else{
-
-    // }
-
     const spellUpdateData = { prepared: !foundSpell.prepared }
 
     console.log(spellUpdateData);
@@ -46,6 +37,15 @@ class SandboxSpellsService {
     console.log('📡 Updated spell', response.data);
     console.log('old object', foundSpell);
 
+    const updatedSpell = new DetailedSpell(response.data)
+
+    const indexOfSpellToUpdate = AppState.loggedInUsersSpells.findIndex(spell => spell.id == spellId)
+
+    if (indexOfSpellToUpdate == -1) {
+      throw new Error('find index failed')
+    }
+
+    AppState.loggedInUsersSpells.splice(indexOfSpellToUpdate, 1, updatedSpell)
 
 
   }
