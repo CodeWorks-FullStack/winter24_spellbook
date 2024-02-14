@@ -36,6 +36,11 @@ export class DetailedSpell {
       </h5>
       <h5>COMPONENTS: ${this.components.join(', ')}</h5>
       <p>${this.description}</p>
+      <div>
+        <button type="button" class="btn btn-success" onclick="app.SandboxSpellsController.saveSpell()">
+          Save Spell
+        </button>
+      </div>
     </div>
     `
   }
